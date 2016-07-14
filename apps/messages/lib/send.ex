@@ -10,7 +10,7 @@ defmodule Messages.Send do
       sender: sender,
       subject: document["subject"],
       message: document["message"],
-      timestamp: :os.system_time(:seconds)
+      timestamp: :os.system_time(:milli_seconds)
     }
 
     IO.inspect document

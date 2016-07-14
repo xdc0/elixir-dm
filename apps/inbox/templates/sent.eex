@@ -1,5 +1,11 @@
 <h1>Message Sent!</h1>
+<script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
 <script>
-  $(document).on('ready', () => {
+  $(() => {
+    // poor man redirect
+    setTimeout(() => {
+      console.log('redirecting!');
+      window.location = window.location.href
+    }, 2000);
   });
 </script>

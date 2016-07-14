@@ -36,7 +36,7 @@ defmodule Inbox.Messages do
       Messages.Send, :dispatch, [sender, body])
     contents = EEx.eval_file("templates/sent.eex")
 
-    conn |> Plug.Conn.send_resp(200, "Message Sent!")
+    conn |> Plug.Conn.send_resp(200, contents)
   end
 
   def route(_method, _path, conn) do
