@@ -1,0 +1,32 @@
+<table>
+
+  <thead>
+    <tr>
+      <td>Sender</td>
+      <td>Subject</td>
+      <td>Date</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= for [sender, subject, timestamp] <- messages do %>
+      <tr>
+        <td><%= sender %></td>
+        <td><%= subject %></td>
+        <td class="timestamp"><%= timestamp %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  
+</table>
+<script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+
+<script>
+  // I have no idea how to pretty print a timestamp with elixir (timex?), so I'm doing a very silly thing here.
+  $(document).on('ready', () => {
+    $('.timestamp').each((e) => {
+      const d = new Date(e.text());
+      e.text(d.toString());
+    });
+  });
+</script>

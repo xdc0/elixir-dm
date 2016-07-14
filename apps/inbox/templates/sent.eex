@@ -1,0 +1,5 @@
+<h1>Message Sent!</h1>
+<script>
+  $(document).on('ready', () => {
+  });
+</script>

@@ -1,0 +1,58 @@
+<section>
+  <table border="3">
+
+    <thead>
+      <tr>
+        <td>Sender</td>
+        <td width="40%">Subject</td>
+        <td>Date</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= for message <- messages do %>
+          <tr>
+            <td><%= message[:sender] %></td>
+            <td><%= message[:subject] %></td>
+            <td class="timestamp"><%= message[:timestamp] %></td>
+          </tr>
+          <% end %>
+    </tbody>
+    
+  </table>
+</section>
+<section style="margin-top: 50px">
+  <form action="" method="post">
+    <div>
+      <label for="recipient">Recipient</label>
+      <input type="text" id="recipient" name="recipient" />
+    </div>
+
+    <div>
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" />
+    </div>
+
+    <div>
+      <label for="subject">Message</label>
+      <textarea cols="100" rows="6" id="message" name="message"></textarea>
+    </div>
+
+    <div>
+      <input type="submit" value="Send" />
+    </div>
+
+  </form>
+</section>
+<script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+
+<script>
+  // I have no idea how to pretty print a timestamp with elixir (timex?), so I'm doing a very silly thing here.
+  $(() => {
+    $('.timestamp').each((list, e) => {
+      const ts = parseInt($(e).html());
+      const d = new Date(ts);
+      $(e).text(d.toString());
+    });
+  });
+</script>
